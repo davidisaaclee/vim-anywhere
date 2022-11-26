@@ -38,7 +38,6 @@ done
 AW_PATH=$HOME/.vim-anywhere
 TMPFILE_DIR=/tmp/vim-anywhere
 TMPFILE=$TMPFILE_DIR/doc-$(date +"%y%m%d%H%M%S")
-VIM_OPTS=--nofork
 
 # Use ~/.gvimrc.min or ~/.vimrc.min if one exists
 VIMRC_PATH=($HOME/.gvimrc.min $HOME/.vimrc.min)
@@ -72,6 +71,7 @@ elif [[ $OSTYPE == "darwin"* ]]; then
     "mvim must have been moved or uninstalled.\nPlease make sure it is" \
     "available in your path and then reinstall vim-anywhere."
 
+  echo "$mvim_path $VIM_OPTS $TMPFILE ($app)" > /tmp/vim-anywhere/debug.log
   $mvim_path $VIM_OPTS $TMPFILE
   # todo, fix invalid file
 
@@ -82,3 +82,4 @@ elif [[ $OSTYPE == "darwin"* ]]; then
   LANG=en_US.UTF-8 pbcopy < $TMPFILE
   osascript -e "activate application \"$app\""
 fi
+
