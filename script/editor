@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/usr/local/bin/alacritty -e bash --login -c "sleep 0.1 && /opt/homebrew/bin/nvim $@"
